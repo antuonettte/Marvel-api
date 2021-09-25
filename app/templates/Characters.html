@@ -1,0 +1,25 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+
+<form method="POST" action="{{ url_for('main.home') }}" >
+    <div class="form-group">
+        <label for="name">Character Name:</label>
+        <input type="text" class="form-control" id="name" placeholder="Enter SuperHero name" name="name" required>
+    </div>
+    <div class="form-group">
+        <label for="desc">Character Description:</label>
+        <textarea class="form-control" name="desc" id="desc" cols="30" rows="5" placeholder="Enter Description"  maxlength="500"></textarea>
+    </div>
+    <div class="form-group">
+        <label for="comics">Comics Appeared in:</label>
+        <input type="text" class="form-control" id="comics" placeholder="Enter comics your hero has been in" name="comics" required>
+    </div>
+    <div class="form-group">
+        <label for="powers">Super Powers:</label>
+        <input type="text" class="form-control" id="powers" placeholder="Enter Super Powers" name="powers" required>
+    </div>
+    <input type="submit" class="btn btn-primary"/>
+</form>
+
+{% endblock content %}

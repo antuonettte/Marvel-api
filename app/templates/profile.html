@@ -1,0 +1,59 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+
+<h3>
+    Profile | {{ current_user.first_name }}
+</h3>
+
+<hr />
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-md">
+            <div class="row">
+                <div class="col-md-6 offset-md-4">
+                    <h5>Here are your Marvel Characters</h5>
+                    <hr />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 offset-md-4">
+                    <ul class="list-group">
+                        {% for c in characters %}
+                            <li class="list-group-item">
+                                <h5>
+                                    <span style="font-size:medium;">Character Name:</span> <span>{{ c.name }}</span>
+                                </h5>
+                                <p class="mx-auto text-center">
+                                    {{ c.description }}
+                                </p>
+                                <p>
+                                    Appeared in: {{ c.comics_appeared_in }}
+                                </p>
+                                <p>
+                                    Has These Powers: {{ c.super_power }}
+                                </p>
+                                
+                                <div>
+                                    <span>
+                                        <small class="float-right">{{ c.date_created }} seconds ago</small>
+                                    </span>
+                                    
+                                </div>
+                                <input type="submit" class="btn btn-danger" value="Delete Character" method="DEL">
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+
+
+{% endblock content %}
