@@ -2,6 +2,7 @@ from datetime import datetime as dt
 from werkzeug.security import generate_password_hash, check_password_hash
 from app import db, login_manager
 
+
 class MarvelCharacter(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(50))
@@ -20,7 +21,8 @@ class MarvelCharacter(db.Model):
         db.session.commit()
 
     def to_dict(self):
-        from app.blueprints.auth.models import User
+        # from app.blueprints.auth.models import User
+
 
         return {
             'id':self.id,
@@ -29,7 +31,7 @@ class MarvelCharacter(db.Model):
             'comics': self.comics_appeared_in,
             'super_power': self.super_power,
             'date_created': self.date_created,
-            'owner': User.query.get(self.owner).to_dict()
+            # 'owner': User.query.get(self.owner).to_dict()
         }
         
     def from_dict(self,data):
